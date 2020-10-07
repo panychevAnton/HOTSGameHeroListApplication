@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/agilityHeroListFragment">
+    <fragment
+        android:id="@+id/agilityHeroListFragment"
+        android:name="com.panychev.dotaheroinfoapp.ui.fragments.agility.AgilityHeroListFragment"
+        android:label="fragment_agility_hero_list"
+        tools:layout="@layout/fragment_agility_hero_list" />
+    <fragment
+        android:id="@+id/intellectHeroListFragment"
+        android:name="com.panychev.dotaheroinfoapp.ui.fragments.intellect.IntellectHeroListFragment"
+        android:label="fragment_intellect_hero_list"
+        tools:layout="@layout/fragment_intellect_hero_list" />
+    <fragment
+        android:id="@+id/strengthHeroListFragment"
+        android:name="com.panychev.dotaheroinfoapp.ui.fragments.strength.StrengthHeroListFragment"
+        android:label="fragment_strength_hero_list"
+        tools:layout="@layout/fragment_strength_hero_list" />
+    <fragment
+        android:id="@+id/heroDetailFragment"
+        android:name="com.panychev.dotaheroinfoapp.ui.fragments.hero_detail.HeroDetailFragment"
+        android:label="fragment_hero_detail"
+        tools:layout="@layout/fragment_hero_detail" />
+</navigation>
