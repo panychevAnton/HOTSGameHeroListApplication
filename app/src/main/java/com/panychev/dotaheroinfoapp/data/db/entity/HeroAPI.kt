@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-const val name = "Abathur"
 @Entity(tableName = "table_hero_list")
 data class HeroAPI(
     //val abilities: List<Ability>,

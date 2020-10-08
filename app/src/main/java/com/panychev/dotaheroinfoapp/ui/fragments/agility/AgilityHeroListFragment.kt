@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.panychev.dotaheroinfoapp.R
 import com.panychev.dotaheroinfoapp.data.APIService
+import com.panychev.dotaheroinfoapp.data.network.*
 import kotlinx.android.synthetic.main.fragment_agility_hero_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -24,10 +26,14 @@ class AgilityHeroListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val apiService = APIService()
+        val apiService = APIService(ConnectivityInterceptorImpl(this.requireContext()))
+        val heroListNetworkDataSource = HeroListNetworkDataSourceImpl(apiService)
+        heroListNetworkDataSource.downloadedHeroList.observe(viewLifecycleOwner, {
+            txt1.text = it[1].name
+        })
+
         GlobalScope.launch(Dispatchers.Main) {
-            val heroes = apiService.getHeroList().await()
-            txt1.text = heroes[1].name
+            heroListNetworkDataSource.fetchHeroList()
         }
     }
 
