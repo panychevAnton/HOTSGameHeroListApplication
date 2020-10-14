@@ -6,17 +6,21 @@ apply plugin: 'kotlin-kapt'
 
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     defaultConfig {
         applicationId "com.panychev.dotaheroinfoapp"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -40,6 +44,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.fragment:fragment-ktx:1.2.5'
 
 
     //Navigation
@@ -65,8 +70,11 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     //Hilt
+    def jetpackHiltVersion = "1.0.0-alpha02"
     implementation "com.google.dagger:hilt-android:$hiltVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$jetpackHiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+    kapt "androidx.hilt:hilt-compiler:$jetpackHiltVersion"
 
     //Time info
     def threetenVersion = '1.2.4'

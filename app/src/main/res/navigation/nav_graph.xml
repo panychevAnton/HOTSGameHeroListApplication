@@ -6,7 +6,7 @@
     app:startDestination="@id/agilityHeroListFragment">
     <fragment
         android:id="@+id/agilityHeroListFragment"
-        android:name="com.panychev.dotaheroinfoapp.ui.fragments.agility.AgilityHeroListFragment"
+        android:name="com.panychev.dotaheroinfoapp.ui.fragments.agility.FragmentAgilityHeroList"
         android:label="fragment_agility_hero_list"
         tools:layout="@layout/fragment_agility_hero_list" />
     <fragment

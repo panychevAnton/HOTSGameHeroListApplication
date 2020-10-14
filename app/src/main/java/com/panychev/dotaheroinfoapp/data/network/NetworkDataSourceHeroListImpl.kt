@@ -6,10 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import com.panychev.dotaheroinfoapp.data.APIService
 import com.panychev.dotaheroinfoapp.data.db.entity.HeroAPI
 import com.panychev.dotaheroinfoapp.utils.NoConnectivityException
+import javax.inject.Inject
 
-class HeroListNetworkDataSourceImpl(
+
+class NetworkDataSourceHeroListImpl @Inject constructor(
     private val apiService: APIService
-) : HeroListNetworkDataSource {
+) : NetworkDataSourceHeroList {
     private val _downloadedHeroList = MutableLiveData<List<HeroAPI>>()
     override val downloadedHeroList: LiveData<List<HeroAPI>>
             get() = _downloadedHeroList

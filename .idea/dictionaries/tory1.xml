@@ -2,6 +2,7 @@
   <dictionary name="tory1">
     <words>
       <w>gson</w>
+      <w>jetpack</w>
       <w>threeten</w>
     </words>
   </dictionary>

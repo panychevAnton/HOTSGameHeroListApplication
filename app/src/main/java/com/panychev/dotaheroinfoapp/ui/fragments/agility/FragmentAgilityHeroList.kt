@@ -4,19 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.panychev.dotaheroinfoapp.R
-import com.panychev.dotaheroinfoapp.data.APIService
-import com.panychev.dotaheroinfoapp.data.network.*
+import com.panychev.dotaheroinfoapp.ui.fragments.base.ScopedFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_agility_hero_list.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class AgilityHeroListFragment : Fragment() {
-
-
+@AndroidEntryPoint
+class FragmentAgilityHeroList : ScopedFragment() {
+    private val viewModelAgilityHeroList: ViewModelAgilityHeroList by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,15 +24,13 @@ class AgilityHeroListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val apiService = APIService(ConnectivityInterceptorImpl(this.requireContext()))
-        val heroListNetworkDataSource = HeroListNetworkDataSourceImpl(apiService)
-        heroListNetworkDataSource.downloadedHeroList.observe(viewLifecycleOwner, {
+        bindUi()
+    }
+    private fun bindUi() = launch {
+        val heroList = viewModelAgilityHeroList.heroList.await()
+        heroList.observe(viewLifecycleOwner, Observer{
+            if (it == null) return@Observer
             txt1.text = it[1].name
         })
-
-        GlobalScope.launch(Dispatchers.Main) {
-            heroListNetworkDataSource.fetchHeroList()
-        }
     }
-
 }

@@ -10,18 +10,18 @@ import com.panychev.dotaheroinfoapp.data.db.entity.HeroAPI
     entities = [HeroAPI::class],
     version = 1
 )
-abstract class HeroListDatabase: RoomDatabase() {
-    abstract fun heroListDao(): HeroListDao
+abstract class DatabaseHeroList: RoomDatabase() {
+    abstract fun heroListDao(): DaoHeroList
     companion object{
         @Volatile
-        private var instance: HeroListDatabase? = null
+        private var instance: DatabaseHeroList? = null
         private val LOCK = Any()
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
             instance ?: buildDataBase(context).also { instance = it }
         }
         private fun buildDataBase(context: Context) =
             Room.databaseBuilder(context.applicationContext,
-                HeroListDatabase::class.java, "heroes.db")
+                DatabaseHeroList::class.java, "heroes.db")
                 .build()
     }
 }

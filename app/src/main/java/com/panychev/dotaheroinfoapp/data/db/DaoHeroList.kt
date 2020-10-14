@@ -8,7 +8,7 @@ import androidx.room.Query
 import com.panychev.dotaheroinfoapp.data.db.entity.HeroAPI
 
 @Dao
-interface HeroListDao {
+interface DaoHeroList {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun upsert(heroList: List<HeroAPI>)
     @Query("select * from table_hero_list")
