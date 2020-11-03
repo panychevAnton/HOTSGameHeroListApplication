@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="4dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    app:cardCornerRadius="4dp"
+    app:cardBackgroundColor="@color/colorPrimary">
+    <TextView
+        android:id="@+id/txt_talent_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_vertical"
+        android:text="Level"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+        android:textSize="16sp"
+        android:textColor="@color/textColorHeaderPrimary"/>
+    <ImageView
+        android:id="@+id/img_talent_expand_icon"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:src="@drawable/icon_expand_more"
+        android:layout_margin="8dp"
+        android:layout_gravity="end"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/recycler_main_icon_desc" />
+
+
+</com.google.android.material.card.MaterialCardView>

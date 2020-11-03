@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHeroList">
+
+    <fragment
+        android:id="@+id/fragmentHeroList"
+        android:name="com.panychev.dotaheroinfoapp.ui.fragments.hero_list.FragmentHeroList"
+        android:label="fragment_hero_list"
+        tools:layout="@layout/fragment_hero_list" >
+        <action
+            android:id="@+id/actionDetail"
+            app:destination="@id/fragmentHeroDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHeroDetail"
+        android:name="com.panychev.dotaheroinfoapp.ui.fragments.hero_detail.FragmentHeroDetail"
+        android:label="fragment_hero_detail"
+        tools:layout="@layout/fragment_hero_detail" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+</navigation>
