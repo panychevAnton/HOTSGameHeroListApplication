@@ -3,7 +3,9 @@
     <words>
       <w>gson</w>
       <w>jetpack</w>
+      <w>mana</w>
       <w>threeten</w>
+      <w>upsert</w>
     </words>
   </dictionary>
 </component>

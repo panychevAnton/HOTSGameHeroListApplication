@@ -1,8 +1,8 @@
-package com.panychev.dotaheroinfoapp.data
+package com.panychev.dotaheroinfoapp.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.panychev.dotaheroinfoapp.data.db.entity.HeroAPI
-import com.panychev.dotaheroinfoapp.data.network.ConnectivityInterceptor
+import com.panychev.dotaheroinfoapp.data.db.entity.Hero
+import com.panychev.dotaheroinfoapp.data.network.interceptors.ConnectivityInterceptor
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -11,11 +11,11 @@ import retrofit2.http.GET
 
 interface APIService {
     @GET("heroes")
-    fun getHeroList(): Deferred<List<HeroAPI>>
+    fun getHeroListAsync(): Deferred<List<Hero>>
     companion object{
         operator fun invoke(
             connectivityInterceptor: ConnectivityInterceptor
-        ): APIService{
+        ): APIService {
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(connectivityInterceptor)
                 .build()
@@ -26,7 +26,6 @@ interface APIService {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(APIService::class.java)
-
         }
     }
 }

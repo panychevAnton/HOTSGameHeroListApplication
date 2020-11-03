@@ -1,4 +1,4 @@
-package com.panychev.dotaheroinfoapp.data.network
+package com.panychev.dotaheroinfoapp.data.network.interceptors
 
 import okhttp3.Interceptor
 

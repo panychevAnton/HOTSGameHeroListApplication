@@ -1,4 +1,4 @@
-package com.panychev.dotaheroinfoapp.data.db.entity
+package com.panychev.dotaheroinfoapp.data.network.response
 
 
 import com.google.gson.annotations.SerializedName

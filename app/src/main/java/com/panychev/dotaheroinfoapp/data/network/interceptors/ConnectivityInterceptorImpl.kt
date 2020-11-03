@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.panychev.dotaheroinfoapp.data.network
+package com.panychev.dotaheroinfoapp.data.network.interceptors
 
 import android.content.Context
 import android.net.ConnectivityManager
